@@ -1,0 +1,35 @@
+version: '2'
+services:
+  nginx:
+    build: nginx
+    volumes:
+      - /var/www/html:/var/www/html
+      - /var/log/nginx:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+        - fpm
+  fpm:
+    build: fpm
+    volumes:
+       - /var/www/html:/var/www/html
+    links:
+       - mysql
+  mysql:
+    image: mysql
+    ports:
+       - "127.0.0.1:3306:3306"
+    environment:
+       MYSQL_ROOT_PASSWORD: examplepass
+    volumes:
+       - /var/lib/mysql:/var/lib/mysql
+
+
+#  pptp:
+#    build: pptp
+#    privileged: true
+#    volumes:
+#      - /etc/ppp/chap-secrets:/etc/ppp/chap-secrets
+#    ports:
+#      - "1723:1723"

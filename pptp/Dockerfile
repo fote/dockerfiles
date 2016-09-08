@@ -6,6 +6,8 @@ COPY pptpd.conf /etc/
 
 RUN echo 'ms-dns 8.8.8.8' >> /etc/ppp/pptpd-options
 
-ENTRYPOINT pptpd --fg
+EXPOSE 1723
+
+#ENTRYPOINT pptpd --fg
 
 
