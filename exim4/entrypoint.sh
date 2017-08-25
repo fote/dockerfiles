@@ -20,8 +20,10 @@ else
 fi
 
 echo "root: $YANDEX_MAIL_ADDRESS" > /etc/email-addresses
-echo "www-data: $YANDEX_MAIL_ADDRESS" > /etc/email-addresses
-echo "Debian-exim: $YANDEX_MAIL_ADDRESS" > /etc/email-addresses
+echo >> /etc/email-addresses
+echo "www-data: $YANDEX_MAIL_ADDRESS" >> /etc/email-addresses
+echo >> /etc/email-addresses
+echo "Debian-exim: $YANDEX_MAIL_ADDRESS" >> /etc/email-addresses
 
 set-exim4-update-conf "${opts[@]}"
 
