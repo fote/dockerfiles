@@ -12,7 +12,7 @@ if [ "$YANDEX_USER" -a "$YANDEX_PASSWORD" ]; then
 		dc_eximconfig_configtype 'smarthost'
 		dc_smarthost 'smtp.yandex.ru::587'
 	)
-	echo "*.yandex.ru:$GMAIL_USER:$GMAIL_PASSWORD" > /etc/exim4/passwd.client
+	echo "*.yandex.ru:$YANDEX_USER:$YANDEX_PASSWORD" > /etc/exim4/passwd.client
 else
 	opts+=(
 		dc_eximconfig_configtype 'internet'
